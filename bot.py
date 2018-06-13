@@ -2,9 +2,11 @@
 import config
 import telebot
 import pyowm
+import logging
 
 owm = pyowm.OWM(config.WEATHER_TOKEN)  # Init WeatherApiObject
 bot = telebot.TeleBot(config.BOT_TOKEN)  # Init TeleBotObject
+logger = logging.getLogger(__name__)
 
 
 @bot.message_handler(commands=['start'])
@@ -15,6 +17,7 @@ def start(message):
 
 @bot.message_handler(content_types=['text'])
 def start(message):
+    logger.info('User has tried to know the weather in' + message.text)
     try:
         observation = owm.weather_at_place(message.text)
     except pyowm.exceptions.not_found_error.NotFoundError:
