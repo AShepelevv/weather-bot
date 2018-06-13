@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import config
 import telebot
-# from telebot import types
 import pyowm
 
 owm = pyowm.OWM(config.WEATHER_TOKEN)  # Init WeatherApiObject
