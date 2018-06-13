@@ -31,7 +31,7 @@ def start(message):
         forecast = owm.three_hours_forecast(message.text).get_forecast()
 
         weather_text = 'It is {0}˚С and {4} in {1} now. The lowest temperature today will be {2}˚С, ' \
-                       'the highest – {3}˚С.\n'.format('{:+.0f}'.format(temp['temp']),
+                       'the highest: {3}˚С.\n'.format('{:+.0f}'.format(temp['temp']),
                                                  message.text,
                                                  '{:+.0f}'.format(temp['temp_min']),
                                                  '{:+.0f}'.format(temp['temp_max']),
